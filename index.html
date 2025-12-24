@@ -2,11 +2,39 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>3D 圣诞树</title>
     <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Pinyon+Script&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* 针对手机屏幕（宽度小于768px）的样式调整 */
+        @media (max-width: 768px) {
+            /* 缩小上传按钮 */
+            .upload-btn {
+                padding: 10px 20px !important;  /* 减小内边距 */
+                font-size: 14px !important;     /* 减小字号 */
+                bottom: 40px !important;        /* 离底部稍微远一点 */
+                width: auto !important;         /* 取消固定宽度 */
+                max-width: 60%;                 /* 限制最大宽度 */
+                left: 50% !important;
+                transform: translateX(-50%) !important; /* 确保居中 */
+                white-space: nowrap;            /* 防止文字换行 */
+            }
+
+            /* 调整加载文字大小 */
+            #loader {
+                font-size: 16px !important;
+                width: 90% !important;
+            }
+
+            /* 调整标题大小，防止手机上标题太大 */
+            #title-container h1 {
+                font-size: 2.5rem !important;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -23,7 +51,14 @@
 
     <div id="canvas-container"></div>
     
-    <video id="input-video" playsinline style="display:none"></video>
+    <video id="input-video" 
+           playsinline 
+           webkit-playsinline 
+           muted 
+           autoplay 
+           style="display:none">
+    </video>
+    
     <canvas id="output-canvas" style="display:none"></canvas>
 
     <script src="https://unpkg.com/three@0.128.0/build/three.min.js"></script>
