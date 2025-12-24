@@ -12,12 +12,10 @@ body {
     z-index: 1;
 }
 
-/* --- 顶部金色标题样式 --- */
-/* style.css - 最终花体字版标题 */
-
+/* ==================== 顶部金色标题样式 ==================== */
 #title-container {
     position: absolute;
-    top: 5%; 
+    top: 8%; /* 稍微往下挪一点，给顶部留出呼吸感 */
     width: 100%;
     text-align: center;
     z-index: 10;
@@ -26,18 +24,17 @@ body {
 
 #title-container h1 {
     margin: 0;
-    /* 【核心修改】使用新引入的花体字 Pinyon Script */
+    /* 花体字 Pinyon Script */
     font-family: 'Pinyon Script', cursive; 
     
-    /* 【微调】花体字通常看起来比较细，所以稍微加大一点字号 */
+    /* 花体字通常看起来比较细，所以稍微加大一点字号 */
     font-size: 4.5rem; 
     
-    /* 【微调】花体字的字母之间需要连接得更紧密，所以减小字间距 */
+    /* 字母之间连接得更紧密 */
     letter-spacing: 1px;
-    
     font-weight: 400;
     
-    /* --- 以下金色流光效果保持不变 --- */
+    /* 金色流光效果 */
     background: linear-gradient(
         180deg, 
         #fffbe8 0%, 
@@ -50,20 +47,12 @@ body {
     background-clip: text;
     color: transparent;
     
-    /* 阴影保持不变，增加立体感 */
+    /* 立体阴影 */
     filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.5))
             drop-shadow(0 5px 10px rgba(0, 0, 0, 0.8));
 }
 
-/* 移动端适配也相应调整 */
-@media (max-width: 768px) {
-    #title-container h1 { 
-        font-size: 3.5rem; /* 移动端也稍微大一点 */
-        top: 30px; 
-    }
-}
-
-/* --- 底部 UI --- */
+/* ==================== 底部 UI 样式 ==================== */
 #ui-container {
     position: absolute;
     bottom: 40px;
@@ -71,6 +60,7 @@ body {
     transform: translateX(-50%);
     text-align: center;
     z-index: 10;
+    width: auto;
 }
 
 .upload-btn {
@@ -82,10 +72,15 @@ body {
     cursor: pointer;
     font-weight: bold;
     color: #fff;
-    font-family: 'Cinzel Decorative', cursive;
+    /* 如果没有引用 Cinzel，回退到 serif */
+    font-family: 'Cinzel Decorative', 'Times New Roman', serif; 
     font-size: 1.1rem;
     box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
     transition: all 0.3s ease;
+    
+    /* 确保文字不换行 */
+    white-space: nowrap; 
+    display: inline-block;
 }
 
 .upload-btn:hover {
@@ -94,6 +89,7 @@ body {
     background: linear-gradient(135deg, #a01010 0%, #e62040 100%);
 }
 
+/* ==================== 加载页样式 ==================== */
 #loader {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
     background: #010103; 
@@ -103,4 +99,34 @@ body {
     font-family: 'Cinzel Decorative', cursive; 
     font-size: 1.5rem;
     letter-spacing: 2px;
+}
+
+/* ==================== 移动端适配 (核心修改) ==================== */
+@media (max-width: 768px) {
+    /* 1. 标题适配 */
+    #title-container h1 { 
+        font-size: 3.0rem; /* 稍微再小一点，防止换行 */
+        letter-spacing: 0px;
+    }
+    #title-container {
+        top: 5%;
+    }
+
+    /* 2. 按钮适配：解决“按钮太大”的问题 */
+    .upload-btn {
+        padding: 10px 20px;  /* 减小内边距 */
+        font-size: 14px;     /* 减小字号 */
+        max-width: 80vw;     /* 限制最大宽度 */
+    }
+
+    /* 3. 布局适配 */
+    #ui-container {
+        bottom: 30px;        /* 稍微靠下 */
+        width: 100%;         /* 容器占满宽度，方便居中 */
+    }
+
+    /* 4. 加载文字适配 */
+    #loader {
+        font-size: 1.2rem;
+    }
 }
