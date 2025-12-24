@@ -3,52 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3D 手势控制圣诞树</title>
+    <title>奢华 3D 圣诞树</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div id="loader">正在加载 AI 模型和 3D 引擎...</div>
-
-    <div id="debug-container">
-        <video id="input-video" playsinline></video>
-        <canvas id="output-canvas"></canvas>
-        <div class="debug-label">调试模式 (左上角)</div>
+    <div id="title-container">
+        <h1>MERRY CHRISTMAS</h1>
     </div>
 
+    <div id="loader">正在初始化奢华体验...</div>
+
     <div id="ui-container">
-        <!-- <h1>🎄 魔法圣诞树 🎄</h1>
-        <div class="instructions">
-            <p>✊ <b>握拳:</b> 聚合成树</p>
-            <p>🖐️ <b>张开:</b> 散成星空</p>
-            <p>👋 <b>移动手掌:</b> 旋转视角</p>
-            <p>👌 <b>捏合:</b> 随机查看照片</p>
-        </div> -->
         <label for="photo-upload" class="upload-btn">📷 上传回忆照片</label>
         <input type="file" id="photo-upload" accept="image/*" multiple style="display: none;">
     </div>
 
     <div id="canvas-container"></div>
+    <video id="input-video" playsinline style="display:none"></video>
+    <canvas id="output-canvas" style="display:none"></canvas>
 
     <script src="https://unpkg.com/three@0.128.0/build/three.min.js"></script>
-    
     <script src="https://unpkg.com/three@0.128.0/examples/js/postprocessing/EffectComposer.js"></script>
     <script src="https://unpkg.com/three@0.128.0/examples/js/postprocessing/RenderPass.js"></script>
     <script src="https://unpkg.com/three@0.128.0/examples/js/postprocessing/ShaderPass.js"></script>
     <script src="https://unpkg.com/three@0.128.0/examples/js/shaders/CopyShader.js"></script>
     <script src="https://unpkg.com/three@0.128.0/examples/js/shaders/LuminosityHighPassShader.js"></script>
     <script src="https://unpkg.com/three@0.128.0/examples/js/postprocessing/UnrealBloomPass.js"></script>
-    
     <script src="https://unpkg.com/gsap@3.9.1/dist/gsap.min.js"></script>
-    
-    <script src="https://unpkg.com/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
-    <script src="https://unpkg.com/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
 
     <script src="script.js"></script>
 </body>
-
 </html>
-
