@@ -318,3 +318,4 @@ setTimeout(() => {
         setTimeout(() => loader.style.display = 'none', 3000);
     }
 }, 30000);
+
