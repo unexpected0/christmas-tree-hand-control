@@ -318,4 +318,5 @@ setTimeout(() => {
         loader.innerText = "AI 加载较慢，已开启键盘模式 (空格切换)";
         setTimeout(() => loader.style.display = 'none', 3000);
     }
-}, 30000);
+}, 5000);
+
